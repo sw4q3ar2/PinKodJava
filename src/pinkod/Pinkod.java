@@ -5,11 +5,13 @@ import java.util.Scanner;
 public class Pinkod {
 
     public static void main(String[] args) {
+        int[] kodTomb = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
         Scanner scr = new Scanner(System.in);
         String pinkod;
         String pinkod2;
         int proba = 1;
-
+        kever(kodTomb);
+        
         System.out.println("Adjon meg egy 4-6 hosszuságú pin kódot: ");
         pinkod = scr.next();
         while (pinkod.length() < 4 || pinkod.length() > 6) {
@@ -33,5 +35,17 @@ public class Pinkod {
             System.out.println("Belépés megtagadva!");
         }
     }
+
+    private static void kever(int[] kodTomb) {
+        
+        for (int i = 0; i < kodTomb.length; i++) {
+            int j= (int) (Math.random() * (i + 1));
+            int csere = kodTomb[i];
+            kodTomb[i] = kodTomb[j];
+            kodTomb[j] = csere;
+            
+        }
+    }
+    
 
 }
